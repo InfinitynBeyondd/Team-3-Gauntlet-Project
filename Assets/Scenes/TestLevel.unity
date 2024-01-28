@@ -3244,8 +3244,9 @@ GameObject:
   - component: {fileID: 705157269}
   - component: {fileID: 705157271}
   - component: {fileID: 705157270}
+  - component: {fileID: 705157272}
   m_Layer: 0
-  m_Name: Knight_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3357,7 +3358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f6e757c48a1bf74faa828ea9050c214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 20
+  runSpeed: 5
 --- !u!61 &705157271
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3403,6 +3404,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &705157272
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 705157265}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7ee16b9a572081a47b401b5a33d48a20, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1104094143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3415,7 +3437,6 @@ GameObject:
   - component: {fileID: 1104094146}
   - component: {fileID: 1104094145}
   - component: {fileID: 1104094148}
-  - component: {fileID: 1104094147}
   m_Layer: 0
   m_Name: Tilemap_Walls
   m_TagString: Untagged
@@ -4377,33 +4398,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!50 &1104094147
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1104094143}
-  m_BodyType: 0
-  m_Simulated: 0
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!19719996 &1104094148
 TilemapCollider2D:
   m_ObjectHideFlags: 0
@@ -4456,7 +4450,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!156049354 &1990573827
 Grid:
   m_ObjectHideFlags: 0

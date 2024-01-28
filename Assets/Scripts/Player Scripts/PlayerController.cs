@@ -8,13 +8,16 @@ public class CharacterController2D : MonoBehaviour
 
     float horizontal;
     float vertical;
-    float moveLimiter = 0.7f;
+    private bool isMoving = false;
+    //float moveLimiter = 0.7f;
+    private Animator playerAnimator;
 
     public float runSpeed = 20.0f;
 
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -22,6 +25,16 @@ public class CharacterController2D : MonoBehaviour
         // Gives a value between -1 and 1
         horizontal = Input.GetAxis("Horizontal"); // -1 is left
         vertical = Input.GetAxis("Vertical"); // -1 is down
+
+        if (horizontal > 0.1 || vertical > 0.1 || horizontal > -0.1 || vertical > -0.1)
+        {
+            isMoving = true;
+            playerAnimator.SetBool("isMoving", isMoving);
+        }
+        else {isMoving= false; playerAnimator.SetBool("isMoving", isMoving); }
+
+        playerAnimator.SetFloat("moveX", horizontal);
+        playerAnimator.SetFloat("moveY", vertical);
     }
 
     void FixedUpdate()
