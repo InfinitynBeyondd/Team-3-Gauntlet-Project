@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class CharacterController2D : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Speed of the character movement
+    Rigidbody2D body;
 
-    private Rigidbody2D rb2d; // Reference to the Rigidbody2D component
+    float horizontal;
+    float vertical;
+    float moveLimiter = 0.7f;
 
-    // Start is called before the first frame update
+    public float runSpeed = 20.0f;
+
     void Start()
     {
-        rb2d = GetComponent<Rigidbody2D>(); // Getting the Rigidbody2D component attached to the GameObject
+        body = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Get horizontal and vertical input from the player
-        float moveInputX = Input.GetAxis("Horizontal");
-        float moveInputY = Input.GetAxis("Vertical");
+        // Gives a value between -1 and 1
+        horizontal = Input.GetAxis("Horizontal"); // -1 is left
+        vertical = Input.GetAxis("Vertical"); // -1 is down
+    }
 
-        // Calculate the velocity vector
-        Vector2 moveVelocity = new Vector2(moveInputX * moveSpeed, moveInputY * moveSpeed);
+    void FixedUpdate()
+    {
+        if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        {
+            // limit movement speed diagonally, so you move at 70% speed
+            //horizontal *= moveLimiter;
+            //vertical *= moveLimiter;
+        }
 
-        // Apply the velocity to the Rigidbody2D
-        rb2d.velocity = moveVelocity;
-
-        // Update the sprite's position based on Rigidbody2D's velocity
-        transform.position += (Vector3)moveVelocity * Time.deltaTime;
+        body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
     }
 }
