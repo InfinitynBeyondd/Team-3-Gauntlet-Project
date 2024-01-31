@@ -2,15 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController2D : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     Rigidbody2D body;
 
     float horizontal;
     float vertical;
+
+    public int lookX;
+    public int lookY;
     private bool isMoving = false;
+    public Vector2 currentLook;
+
     //float moveLimiter = 0.7f;
     private Animator playerAnimator;
+    
 
     public float runSpeed = 20.0f;
 
@@ -33,6 +39,12 @@ public class CharacterController2D : MonoBehaviour
         }
         else {isMoving= false; playerAnimator.SetBool("isMoving", isMoving); }
 
+        GetLookDirection();
+
+        playerAnimator.SetFloat("LookX", lookX);
+        playerAnimator.SetFloat("LookY", lookY);
+
+
         playerAnimator.SetFloat("moveX", horizontal);
         playerAnimator.SetFloat("moveY", vertical);
     }
@@ -47,5 +59,25 @@ public class CharacterController2D : MonoBehaviour
         }
 
         body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
+    }
+
+    void GetLookDirection()
+    {
+        //If looking right
+        if (horizontal > 0.1 && vertical == 0) { lookX = 1; lookY = 0; }
+        //If looking bottom right
+        else if (horizontal > 0.1 && vertical < -0.1) { lookX = 1; lookY = -1; }
+        //If looking bottom 
+        else if (horizontal == 0 && vertical < -0.1) { lookX = 0;  lookY = -1;}
+        //If looking bottom left
+        else if (horizontal < -0.1 && vertical < -0.1) { lookX= -1; lookY = -1; }
+        //If looking left
+        else if (horizontal < -0.1 && vertical == 0) { lookX = -1; lookY = 0; }
+        //If looking top left
+        else if (horizontal < -0.1 && vertical > 0.1) { lookX = -1; lookY = 1; }
+        //If looking top
+        else if (horizontal == 0 && vertical > 0.1) { lookX = 0; lookY = 1; }
+        //If looking top right
+        else if (horizontal > 0.1 && vertical > 0.1) { lookX = 1; lookY = 1; }
     }
 }
