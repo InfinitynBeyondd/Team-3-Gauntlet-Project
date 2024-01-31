@@ -26,7 +26,7 @@ public class CharacterController2D : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal"); // -1 is left
         vertical = Input.GetAxis("Vertical"); // -1 is down
 
-        if (horizontal > 0.1 || vertical > 0.1 || horizontal > -0.1 || vertical > -0.1)
+        if (horizontal > 0.1 || vertical > 0.1 || horizontal < -0.1 || vertical < -0.1)
         {
             isMoving = true;
             playerAnimator.SetBool("isMoving", isMoving);
