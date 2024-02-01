@@ -13,7 +13,7 @@ public class PlayerActions : MonoBehaviour
     public float projectileSpeed = 20f;
 
     //Cj
-    private Vector3 projectileSpawnOffset = new Vector3(0.7f, 0.7f, 0);
+    private Vector3 projectileSpawnOffset = new Vector3(1.5f, 1.5f, 0);
 
     void Start()
     {
@@ -28,6 +28,9 @@ public class PlayerActions : MonoBehaviour
             Vector3 currentLookPosition = new Vector3((playerControllerInstance.lookX * projectileSpawnOffset.x), (playerControllerInstance.lookY * projectileSpawnOffset.y), 0);
             GameObject projectile = Instantiate(attackProjectile, gameObject.transform.position + currentLookPosition, gameObject.transform.rotation);
             projectile.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.position + currentLookPosition * projectileSpeed, ForceMode2D.Impulse);
+            
+            ProjectileScript projectileScriptInstance = projectile.GetComponent<ProjectileScript>();
+            projectileScriptInstance.SetCorrectSprite(playerControllerInstance.lookX, playerControllerInstance.lookY);
         }
     }
 }
