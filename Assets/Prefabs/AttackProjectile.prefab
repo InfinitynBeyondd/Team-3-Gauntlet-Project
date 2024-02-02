@@ -116,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.047775507}
@@ -172,7 +172,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
-  projectileSpeed: 0
   topProjectile: {fileID: 1412418888, guid: 13b77621ba2f8f841a8b781ea23b34ea, type: 3}
   topRightProjectile: {fileID: 974154786, guid: 13b77621ba2f8f841a8b781ea23b34ea, type: 3}
   rightProjectile: {fileID: 1310854086, guid: 13b77621ba2f8f841a8b781ea23b34ea, type: 3}

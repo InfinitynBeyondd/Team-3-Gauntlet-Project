@@ -31,7 +31,7 @@ public class ProjectileScript : MonoBehaviour
         currentRigidbody = GetComponent<Rigidbody>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject);
     }
