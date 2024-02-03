@@ -12,7 +12,7 @@ public class ProjectileScript : MonoBehaviour
 
     //Will need to change sprite depending on where it is facing
 
-    private SpriteRenderer currentSprite;
+    public SpriteRenderer currentSprite;
     private Rigidbody currentRigidbody;
 
     [Header("Projectile Sprites")]
@@ -27,7 +27,6 @@ public class ProjectileScript : MonoBehaviour
 
     void Start()
     {
-        currentSprite = GetComponent<SpriteRenderer>();
         currentRigidbody = GetComponent<Rigidbody>();
     }
 
@@ -37,7 +36,9 @@ public class ProjectileScript : MonoBehaviour
     }
 
     public void SetCorrectSprite(int lookX,int lookY) 
-    {  
+    {
+        if (currentSprite != null)
+        {
             //If looking right
             if (lookX == 1 && lookY == 0) { currentSprite.sprite = rightProjectile; }
             //If looking bottom right
@@ -54,5 +55,10 @@ public class ProjectileScript : MonoBehaviour
             else if (lookX == 0 && lookY == 1) { currentSprite.sprite = topProjectile; }
             //If looking top right
             else if (lookX == 1 && lookY == 1) { currentSprite.sprite = topRightProjectile; }
+        }
+        else
+        {
+            Debug.LogWarning("No sprite renderer");
+        }
     }
 }

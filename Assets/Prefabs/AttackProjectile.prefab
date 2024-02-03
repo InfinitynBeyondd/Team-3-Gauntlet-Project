@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPosition: {x: 0, y: 0, z: 0}
+  currentSprite: {fileID: 4190082978539022073}
   topProjectile: {fileID: 1412418888, guid: 13b77621ba2f8f841a8b781ea23b34ea, type: 3}
   topRightProjectile: {fileID: 974154786, guid: 13b77621ba2f8f841a8b781ea23b34ea, type: 3}
   rightProjectile: {fileID: 1310854086, guid: 13b77621ba2f8f841a8b781ea23b34ea, type: 3}
