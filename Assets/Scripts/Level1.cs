@@ -3,25 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class CharacterSelect : MonoBehaviour
 {
     void Update()
     {
         // Check for key press to load the scene
         if (Input.GetKeyDown(KeyCode.Return)) // Use KeyCode.Alpha1 instead of KeyCode.1
         {
-            LoadCharacterSelectScene();
+            LoadLevel1Scene();
         }
     }
 
-    public void CharacterSelect()
+    public void Level1()
     {
-        LoadCharacterSelectScene();
+        LoadLevel1Scene();
     }
 
-    private void LoadCharacterSelectScene()
+    private void LoadLevel1Scene()
     {
         // Load the scene asynchronously
-        SceneManager.LoadSceneAsync("Character_SelectKnight");
+        SceneManager.LoadSceneAsync("Gauntlet_Level_1_Prototype");
     }
 }

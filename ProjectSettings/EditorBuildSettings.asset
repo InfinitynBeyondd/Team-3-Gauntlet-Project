@@ -9,14 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
+    path: Assets/Scenes/Gauntlet_Level_1_Prototype.unity
+    guid: 93ab0498ef0870b44b85c1bffe0f6b5a
+  - enabled: 1
     path: Assets/Scenes/Start_Menu.unity
     guid: d9bafcf42f77f9d45b01fd14e312cd39
   - enabled: 1
     path: Assets/Scenes/Character_SelectKnight.unity
     guid: e12db364f055f3a4aa2bff6fd2343ffb
-  - enabled: 1
-    path: Assets/Scenes/Gauntlet_Level_1_Prototype.unity
-    guid: 93ab0498ef0870b44b85c1bffe0f6b5a
   - enabled: 1
     path: Assets/Scenes/Gauntlet_Level_2.unity
     guid: 3eae86568cee27e47aaf4cc8efb918ec
