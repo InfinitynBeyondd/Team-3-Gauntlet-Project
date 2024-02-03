@@ -41,6 +41,11 @@ public class GhostScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Projectile"))            
         {
             healthPoints -= 1;
-        } 
+        }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject) ;
+        }
     }
 }

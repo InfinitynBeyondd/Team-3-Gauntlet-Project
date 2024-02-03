@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/My_Level.unity
     guid: be93baebc648f774b83f8e5ebd35fc7e
+  - enabled: 1
+    path: Assets/Scenes/Gauntlet_Level_1_Prototype 1.unity
+    guid: 315564d197282654fa0f5098e33ea255
   m_configObjects: {}
