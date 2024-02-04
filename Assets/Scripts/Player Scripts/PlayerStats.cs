@@ -12,7 +12,11 @@ public class PlayerStats : MonoBehaviour
     public int points = 0;
     public int numberOfBombs = 0;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
         currentHealth = maxPlayerHealth;

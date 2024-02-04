@@ -200,6 +200,7 @@ MonoBehaviour:
   currentHealth: 0
   numberOfKeys: 0
   points: 0
+  numberOfBombs: 0
 --- !u!114 &7820146956877906023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,7 +214,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerControllerInstance: {fileID: 0}
-  attackProjectile: {fileID: 0}
+  attackProjectile: {fileID: 1971997925911767555, guid: 2e67857a105268a4b8cc343cf220f146, type: 3}
   projectileSpeed: 20
 --- !u!114 &3362148608450862161
 MonoBehaviour:
