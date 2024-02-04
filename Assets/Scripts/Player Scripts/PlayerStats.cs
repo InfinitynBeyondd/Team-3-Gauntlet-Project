@@ -49,6 +49,11 @@ public class PlayerStats : MonoBehaviour
         {
             
             inWinMenu = false;
+        //THE BOMB
+        if (Input.GetKeyUp(KeyCode.B) && numberOfBombs > 0)
+        {
+            DestroyGameObjectsWithTag("Ghost");
+            numberOfBombs -= 1;
         }
     }
     
@@ -71,6 +76,7 @@ public class PlayerStats : MonoBehaviour
         gameOver = true;
         GameOverText.SetActive(true);
         StartCoroutine(GoToStart());
+        Destroy(gameObject);
     }
 
     IEnumerator GoToStart()
@@ -84,5 +90,16 @@ public class PlayerStats : MonoBehaviour
     {
         gameOver = true;
         WinScreen.SetActive(true);
+
+    void DestroyGameObjectsWithTag(string tag)
+    {
+        // Find all game objects with the specified tag
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
+
+        // Iterate through each game object and destroy them
+        foreach (GameObject obj in gameObjects)
+        {
+            Destroy(obj);
+        }
     }
 }
