@@ -22,6 +22,6 @@ public class CharacterSelect : MonoBehaviour
     private void LoadLevel1Scene()
     {
         // Load the scene asynchronously
-        SceneManager.LoadSceneAsync("Gauntlet_Level_1_Prototype");
+        SceneManager.LoadSceneAsync("Gauntlet_Level_1_Prototype 1");
     }
 }
