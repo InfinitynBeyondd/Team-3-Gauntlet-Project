@@ -9,7 +9,11 @@ public class PlayerStats : MonoBehaviour
     [SerializeField] GameObject GameOverText;
     [SerializeField] private float maxPlayerHealth = 800;
     [HideInInspector] public float currentHealth;
+    [SerializeField] GameObject WinScreen;
 
+    private bool gameOver = false;
+
+    private bool inWinMenu = false; 
     public int numberOfKeys = 0;
     public int points = 0;
     public int numberOfBombs = 0;
@@ -26,13 +30,28 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        LoseHealthOverTime();
+        if(!gameOver && !inWinMenu)
+        {
+            LoseHealthOverTime();
+        }
 
         if (currentHealth <= 0)
         {
             GameOver();
         }
+
+        if (SceneManager.GetActiveScene().name == "WinMenu")
+        {
+            
+            inWinMenu = true;
+        }
+        else
+        {
+            
+            inWinMenu = false;
+        }
     }
+    
 
     private void LoseHealthOverTime()
     {
@@ -49,6 +68,7 @@ public class PlayerStats : MonoBehaviour
 
     private void GameOver()
     {
+        gameOver = true;
         GameOverText.SetActive(true);
         StartCoroutine(GoToStart());
     }
@@ -59,5 +79,10 @@ public class PlayerStats : MonoBehaviour
 
         SceneManager.LoadScene("Start_Menu");
 
+    }
+    public void WinGame()
+    {
+        gameOver = true;
+        WinScreen.SetActive(true);
     }
 }

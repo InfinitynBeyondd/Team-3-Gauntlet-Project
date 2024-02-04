@@ -200,6 +200,7 @@ MonoBehaviour:
   GameOverText: {fileID: 9004849812535568746}
   maxPlayerHealth: 800
   currentHealth: 0
+  WinScreen: {fileID: 0}
   numberOfKeys: 0
   points: 0
   numberOfBombs: 0
@@ -218,6 +219,7 @@ MonoBehaviour:
   playerControllerInstance: {fileID: 0}
   attackProjectile: {fileID: 1971997925911767555, guid: 2e67857a105268a4b8cc343cf220f146, type: 3}
   projectileSpeed: 20
+  projectileSound: {fileID: 8300000, guid: 0ccc3d9eec79ee04696cd4a40dcbfcf7, type: 3}
   pauseMenu: {fileID: 609792017673986712}
 --- !u!114 &3362148608450862161
 MonoBehaviour:

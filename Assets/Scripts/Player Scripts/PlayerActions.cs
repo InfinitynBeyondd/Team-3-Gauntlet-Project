@@ -11,6 +11,7 @@ public class PlayerActions : MonoBehaviour
     [Header("Attack Action")]
     public GameObject attackProjectile;
     public float projectileSpeed = 20f;
+    public AudioClip projectileSound;
 
     public GameObject pauseMenu;
     private bool isPaused = false;
@@ -18,9 +19,12 @@ public class PlayerActions : MonoBehaviour
     //Cj
     private Vector3 projectileSpawnOffset = new Vector3(1.5f, 1.5f, 0);
 
+    private AudioSource audioSource;
+
     void Start()
     {
         playerControllerInstance = GetComponent<PlayerController>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -45,6 +49,10 @@ public class PlayerActions : MonoBehaviour
             GameObject projectile = Instantiate(attackProjectile, gameObject.transform.position + currentLookPosition, gameObject.transform.rotation);
             projectile.GetComponent<Rigidbody2D>().AddForce(currentLookPosition.normalized * projectileSpeed, ForceMode2D.Impulse);
 
+            if(projectileSound != null && audioSource != null)
+            {
+                audioSource.PlayOneShot(projectileSound);
+            }
 
             ProjectileScript projectileScriptInstance = projectile.GetComponent<ProjectileScript>();
             projectileScriptInstance.SetCorrectSprite(playerControllerInstance.lookX, playerControllerInstance.lookY);
