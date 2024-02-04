@@ -49,7 +49,6 @@ public class PlayerStats : MonoBehaviour
 
     private void GameOver()
     {
-        Time.timeScale = 0;
         GameOverText.SetActive(true);
         StartCoroutine(GoToStart());
     }
