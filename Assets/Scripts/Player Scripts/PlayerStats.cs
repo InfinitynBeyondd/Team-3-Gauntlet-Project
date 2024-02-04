@@ -34,7 +34,7 @@ public class PlayerStats : MonoBehaviour
         }
 
         //THE BOMB
-        if (Input.GetKeyUp(KeyCode.Space) && numberOfBombs > 1) 
+        if (Input.GetKeyUp(KeyCode.Space) && numberOfBombs > 1)
         {
             DestroyGameObjectsWithTag("Ghost");
         }
@@ -79,3 +79,4 @@ public class PlayerStats : MonoBehaviour
             Destroy(obj);
         }
     }
+}
