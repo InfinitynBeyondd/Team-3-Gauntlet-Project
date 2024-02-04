@@ -7,8 +7,11 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private float maxPlayerHealth = 800;
     [HideInInspector] public float currentHealth;
+
     public int numberOfKeys = 0;
     public int points = 0;
+    public int numberOfBombs = 0;
+
     // Start is called before the first frame update
     void Start()
     {
