@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
 
     [SerializeField] private float _maximumpawnTime = 2f;
 
+    public int spawnCap = 20;
+    private int spawnCount = 0;
+
     private float _timeUntilSpawn;
 
     private void Awake()
@@ -29,10 +32,11 @@ public class EnemySpawner : MonoBehaviour
 
         _timeUntilSpawn -= Time.deltaTime;
 
-        if (_timeUntilSpawn <= 0)
+        if (_timeUntilSpawn <= 0 && spawnCount < spawnCap)
         {
             Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
             SetTimeUntilSpawn();
+            spawnCount++;
         }
     }
 
