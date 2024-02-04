@@ -25,7 +25,6 @@ public class PlayerStats : MonoBehaviour
     private void Update()
     {
         LoseHealthOverTime();
-        Debug.Log(currentHealth);
     }
 
     private void LoseHealthOverTime()

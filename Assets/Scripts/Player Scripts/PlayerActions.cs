@@ -12,6 +12,9 @@ public class PlayerActions : MonoBehaviour
     public GameObject attackProjectile;
     public float projectileSpeed = 20f;
 
+    public GameObject pauseMenu;
+    private bool isPaused = false;
+
     //Cj
     private Vector3 projectileSpawnOffset = new Vector3(1.5f, 1.5f, 0);
 
@@ -23,6 +26,17 @@ public class PlayerActions : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (pauseMenu != null)
+            {
+                if (isPaused != true) { PauseGame(); }
+                else { ResumeGame(); }
+            }
+            Debug.Log("I'm pressing stuffasasd");
+            Debug.Log(pauseMenu);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space)) 
         { 
             Vector3 currentLookPosition = new Vector3((playerControllerInstance.lookX * projectileSpawnOffset.x), (playerControllerInstance.lookY * projectileSpawnOffset.y), 0);
@@ -34,5 +48,19 @@ public class PlayerActions : MonoBehaviour
         }
 
         if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
+    }
+
+    void PauseGame()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
+        isPaused = true;
+    }
+
+    void ResumeGame()
+    {
+        pauseMenu.SetActive(false);
+        Time.timeScale = 1;
+        isPaused = false;
     }
 }

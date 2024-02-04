@@ -7,6 +7,7 @@ TagManager:
   - Projectile
   - Enemy
   - Ghost
+  - PauseMenu
   layers:
   - Default
   - TransparentFX
