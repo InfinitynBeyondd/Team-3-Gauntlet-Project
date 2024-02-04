@@ -49,6 +49,7 @@ public class PlayerStats : MonoBehaviour
         {
             
             inWinMenu = false;
+        }
         //THE BOMB
         if (Input.GetKeyUp(KeyCode.B) && numberOfBombs > 0)
         {
@@ -90,6 +91,7 @@ public class PlayerStats : MonoBehaviour
     {
         gameOver = true;
         WinScreen.SetActive(true);
+    }
 
     void DestroyGameObjectsWithTag(string tag)
     {
