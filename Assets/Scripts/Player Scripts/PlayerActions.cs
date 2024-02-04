@@ -40,9 +40,12 @@ public class PlayerActions : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) 
         { 
             Vector3 currentLookPosition = new Vector3((playerControllerInstance.lookX * projectileSpawnOffset.x), (playerControllerInstance.lookY * projectileSpawnOffset.y), 0);
+           // GameObject projectile = Instantiate(attackProjectile, gameObject.transform.position + currentLookPosition, gameObject.transform.rotation);
+           // projectile.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.position + currentLookPosition * projectileSpeed, ForceMode2D.Impulse);
             GameObject projectile = Instantiate(attackProjectile, gameObject.transform.position + currentLookPosition, gameObject.transform.rotation);
-            projectile.GetComponent<Rigidbody2D>().AddForce(gameObject.transform.position + currentLookPosition * projectileSpeed, ForceMode2D.Impulse);
-            
+            projectile.GetComponent<Rigidbody2D>().AddForce(currentLookPosition.normalized * projectileSpeed, ForceMode2D.Impulse);
+
+
             ProjectileScript projectileScriptInstance = projectile.GetComponent<ProjectileScript>();
             projectileScriptInstance.SetCorrectSprite(playerControllerInstance.lookX, playerControllerInstance.lookY);
         }
