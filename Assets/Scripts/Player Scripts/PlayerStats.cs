@@ -51,6 +51,7 @@ public class PlayerStats : MonoBehaviour
     {
         GameOverText.SetActive(true);
         StartCoroutine(GoToStart());
+        Destroy(gameObject);
     }
 
     IEnumerator GoToStart()
