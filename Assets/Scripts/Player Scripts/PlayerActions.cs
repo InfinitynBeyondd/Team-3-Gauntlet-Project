@@ -32,5 +32,7 @@ public class PlayerActions : MonoBehaviour
             ProjectileScript projectileScriptInstance = projectile.GetComponent<ProjectileScript>();
             projectileScriptInstance.SetCorrectSprite(playerControllerInstance.lookX, playerControllerInstance.lookY);
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape)) { Application.Quit(); }
     }
 }

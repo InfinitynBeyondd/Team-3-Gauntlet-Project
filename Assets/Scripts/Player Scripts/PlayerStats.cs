@@ -7,9 +7,16 @@ public class PlayerStats : MonoBehaviour
 
     [SerializeField] private float maxPlayerHealth = 800;
     [HideInInspector] public float currentHealth;
+
     public int numberOfKeys = 0;
     public int points = 0;
-    // Start is called before the first frame update
+    public int numberOfBombs = 0;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
+
     void Start()
     {
         currentHealth = maxPlayerHealth;
