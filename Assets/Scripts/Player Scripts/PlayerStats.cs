@@ -32,6 +32,12 @@ public class PlayerStats : MonoBehaviour
         {
             GameOver();
         }
+
+        //THE BOMB
+        if (Input.GetKeyUp(KeyCode.Space) && numberOfBombs > 1) 
+        {
+            DestroyGameObjectsWithTag("Ghost");
+        }
     }
 
     private void LoseHealthOverTime()
@@ -61,4 +67,15 @@ public class PlayerStats : MonoBehaviour
         SceneManager.LoadScene("Start_Menu");
 
     }
-}
+
+    void DestroyGameObjectsWithTag(string tag)
+    {
+        // Find all game objects with the specified tag
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag(tag);
+
+        // Iterate through each game object and destroy them
+        foreach (GameObject obj in gameObjects)
+        {
+            Destroy(obj);
+        }
+    }
