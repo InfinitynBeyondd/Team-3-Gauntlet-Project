@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class PlayerController : MonoBehaviour
     public int lookY;
     private bool isMoving = false;
     public Vector2 currentLook;
+
+    private bool isInLevel2 = false;
 
     //float moveLimiter = 0.7f;
     private Animator playerAnimator;
@@ -47,6 +50,12 @@ public class PlayerController : MonoBehaviour
 
         playerAnimator.SetFloat("moveX", horizontal);
         playerAnimator.SetFloat("moveY", vertical);
+
+        if (SceneManager.GetActiveScene().name == "Gauntlet_Level_2" && isInLevel2 == false)
+        {
+            transform.position = new Vector3(2,-2,0);
+            isInLevel2 = true;
+        }
     }
 
     void FixedUpdate()
