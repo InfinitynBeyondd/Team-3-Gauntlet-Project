@@ -13,12 +13,12 @@ public class CameraScript : MonoBehaviour
     {
         player = GameObject.Find("Player");
 
-        Camera.Follow = player.transform;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Camera.Follow = player.transform;
     }
 }
